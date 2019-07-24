@@ -7,24 +7,74 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 // explicit
-
+  double myWidth = 200.0;
 // Method
 
   Widget showAppName() {
-    return Text('Kingz Shopping');
+    return Container(
+      margin: EdgeInsets.only(bottom: 8.0),
+      child: Text(
+        'Kingz Shopping',
+        style: TextStyle(
+          fontSize: 32.0,
+          color: Colors.red[900],
+          fontWeight: FontWeight.bold,
+          fontFamily: 'Pacifico',
+        ),
+      ),
+    );
   }
 
   Widget signInBtn() {
-    return RaisedButton(
-      child: Text('Sign In'),
-      onPressed: () {},
+    return Container(
+      child: FlatButton(
+        color: Colors.orange[400],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        child: Text(
+          'Sign In',
+          style: TextStyle(color: Colors.white),
+        ),
+        onPressed: () {},
+      ),
     );
   }
 
   Widget signUpBtn() {
-    return RaisedButton(
-      child: Text('Sign Up'),
-      onPressed: (){},
+    return Container(
+      child: OutlineButton(
+        borderSide: BorderSide(
+          color: Colors.orange[400],
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+        child: Text('Sign Up'),
+        onPressed: () {},
+      ),
+    );
+  }
+
+  Widget showBtn() {
+    return Container(
+      width: 250.0,
+      child: Row(
+        children: <Widget>[
+          Expanded(child: signInBtn(),),
+          Expanded(child: signUpBtn(),),
+          //signUpBtn(),
+        ],
+      ),
+    );
+  }
+
+  Widget showLogo() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 10.0),
+      width: 200.0,
+      height: 300.0,
+      child: Image.asset('images/logo.png'),
     );
   }
 
@@ -32,12 +82,20 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [Colors.white, Colors.blue],
+            radius: 1.0,
+          ),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            showLogo(),
             showAppName(),
-            signInBtn(),
-            signUpBtn(),
+            //signInBtn(),
+            //signUpBtn(),
+            showBtn(),
           ],
         ),
         alignment: Alignment.center,
