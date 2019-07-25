@@ -3,15 +3,15 @@ import 'package:flutter/services.dart';
 import 'package:kingz_shopping/screens/home.dart';
 
 main() {
-
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //SystemChrome.setPreferredOrientations(orientations)
-    return MaterialApp(
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+    return MaterialApp(debugShowCheckedModeBanner: false,
       home: Home(),
     );
   }

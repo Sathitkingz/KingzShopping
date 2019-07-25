@@ -96,7 +96,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Scaffold(resizeToAvoidBottomPadding: false,
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(

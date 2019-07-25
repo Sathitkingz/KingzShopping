@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "692081251313",
+    "firebase_url": "https://kingzshopping-3059f.firebaseio.com",
+    "project_id": "kingzshopping-3059f",
+    "storage_bucket": "kingzshopping-3059f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:692081251313:android:d2cd64e90954649a",
+        "android_client_info": {
+          "package_name": "th.co.vinpoint.kingz.kingz_shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "692081251313-vfi72rorgo3n7l9g4j9hcslcjkrpe6ar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9_YwOxCiHMBvSKFgEzjBetGg5TRywlQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "692081251313-vfi72rorgo3n7l9g4j9hcslcjkrpe6ar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
