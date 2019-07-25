@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kingz_shopping/screens/my_service.dart';
 import 'package:kingz_shopping/screens/sign_in.dart';
 import 'package:kingz_shopping/screens/sign_up.dart';
 
@@ -11,6 +13,23 @@ class _HomeState extends State<Home> {
 // explicit
   double myWidth = 200.0;
 // Method
+  @override
+  void initState() {
+    super.initState();
+    checkStatus();
+  }
+
+  Future<void> checkStatus() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    FirebaseUser firebaseUser = await firebaseAuth.currentUser();
+
+    if (firebaseUser != null) {
+      var serviceRoute =
+          MaterialPageRoute(builder: (BuildContext context) => myService());
+      Navigator.of(context)
+          .pushAndRemoveUntil(serviceRoute, (Route<dynamic> route) => false);
+    }
+  }
 
   Widget showAppName() {
     return Container(
@@ -96,7 +115,8 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(resizeToAvoidBottomPadding: false,
+    return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
         decoration: BoxDecoration(
           gradient: RadialGradient(
