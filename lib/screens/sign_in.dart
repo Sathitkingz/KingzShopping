@@ -49,7 +49,7 @@ class _SignInState extends State<SignIn> {
           helperStyle: TextStyle(color: Colors.red),
         ),
         onSaved: (String value) {
-          emailString = value;
+          myEmail = value;
         },
       ),
     );
@@ -69,7 +69,7 @@ class _SignInState extends State<SignIn> {
           ),
         ),
         onSaved: (String value) {
-          passwordString = value;
+          myPass = value;
         },
       ),
     );
@@ -102,7 +102,7 @@ class _SignInState extends State<SignIn> {
   Future<void> checkAuthen() async {
     await firebaseAuth
         .signInWithEmailAndPassword(
-            email: emailString, password: passwordString)
+            email: myEmail, password: myPass)
         .then((response) {
       var homeRoute =
           MaterialPageRoute(builder: (BuildContext context) => myService());
@@ -130,8 +130,8 @@ class _SignInState extends State<SignIn> {
         backgroundColor: Colors.orange[400],
       ),
       body: Form(
+        key: formKey,
         child: Container(
-          key: formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

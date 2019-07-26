@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kingz_shopping/screens/home.dart';
+import 'package:kingz_shopping/screens/page1.dart';
+import 'package:kingz_shopping/screens/page2.dart';
+import 'package:kingz_shopping/screens/page3.dart';
 
 class myService extends StatefulWidget {
   @override
@@ -11,6 +14,7 @@ class _myServiceState extends State<myService> {
 // Explicit
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   String displayNameString = '';
+  Widget myWidget = Page1();
 
 // Method
   @override
@@ -37,7 +41,7 @@ class _myServiceState extends State<myService> {
   Widget showTopTile() {
     return Container(
       alignment: Alignment.center,
-      child: Text('Login by'),
+      child: Text(''),
     );
   }
 
@@ -45,7 +49,7 @@ class _myServiceState extends State<myService> {
     return Container(
       alignment: Alignment.center,
       child: Text(
-        '$displayNameString',
+        'Login by  $displayNameString',
         style: TextStyle(
             fontSize: 14.0,
             fontWeight: FontWeight.bold,
@@ -59,6 +63,9 @@ class _myServiceState extends State<myService> {
       child: ListView(
         children: <Widget>[
           headDrawer(),
+          showPage1(),
+          showPage2(),
+          showPage3(),
           mySignOut(),
         ],
       ),
@@ -93,6 +100,45 @@ class _myServiceState extends State<myService> {
     );
   }
 
+  Widget showPage1() {
+    return ListTile(
+      leading: Icon(Icons.home),
+      title: Text('Page 1'),
+      onTap: () {
+        setState(() {
+          myWidget = Page1();
+          Navigator.of(context).pop();
+        });
+      },
+    );
+  }
+
+  Widget showPage2() {
+    return ListTile(
+      leading: Icon(Icons.android),
+      title: Text('Page 2'),
+      onTap: () {
+        setState(() {
+          myWidget = Page2();
+          Navigator.of(context).pop();
+        });
+      },
+    );
+  }
+
+  Widget showPage3() {
+    return ListTile(
+      leading: Icon(Icons.account_box),
+      title: Text('Page 3'),
+      onTap: () {
+        setState(() {
+          myWidget = Page3();
+          Navigator.of(context).pop();
+        });
+      },
+    );
+  }
+
   Widget showLogo() {
     return Container(
       alignment: Alignment.center,
@@ -117,7 +163,7 @@ class _myServiceState extends State<myService> {
         backgroundColor: Colors.orange[400],
         title: showTitle(),
       ),
-      body: Text('body'),
+      body: myWidget,
       drawer: myDrawerMenu(),
     );
   }

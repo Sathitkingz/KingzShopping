@@ -147,6 +147,8 @@ class _SignUpState extends State<SignUp> {
     userUpdateInfo.displayName = nameString;
     firebaseUser.updateProfile(userUpdateInfo);
 
+    print('Name >>>>> : $nameString');
+
     var myServiceRoute =
         MaterialPageRoute(builder: (BuildContext context) => myService());
     Navigator.of(context)
